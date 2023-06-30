@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 
+import { CommonLayout } from '~/styles/layouts'
+
 const Home: NextPage = () => {
-  return <div>homepage</div>
+  return <CommonLayout>homepage</CommonLayout>
 }
 
 export default Home

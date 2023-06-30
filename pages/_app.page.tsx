@@ -10,6 +10,11 @@ import { useRef } from 'react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components'
 
+import MainLayout from './src/root/main-layout'
+
+import GlobalStyle from '~/styles/global-style'
+import { defaultTheme } from '~/styles/theme'
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const queryClientRef = useRef<QueryClient>()
   if (!queryClientRef.current) {
@@ -28,11 +33,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>Book Search page</title>
       </Head>
-      <ThemeProvider theme={{}}>
+      <ThemeProvider theme={defaultTheme}>
         <QueryClientProvider client={queryClientRef.current}>
           <Hydrate>
             <RecoilRoot>
-              <Component {...pageProps} />
+              <GlobalStyle />
+              <MainLayout>
+                <Component {...pageProps} />
+              </MainLayout>
               <ReactQueryDevtools />
             </RecoilRoot>
           </Hydrate>

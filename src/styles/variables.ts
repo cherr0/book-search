@@ -1,7 +1,14 @@
 import { css } from 'styled-components'
 
-export const commonVariabls = css``
+export const commonVariables = css`
+  --text-default: #000000;
+  --surface-default: #f7f7f5;
+`
 
-export const lightVariables = css``
+export const lightVariables = css`
+  ${commonVariables};
+`
 
-export const darkVariables = css``
+export const darkVariables = css`
+  ${commonVariables};
+`

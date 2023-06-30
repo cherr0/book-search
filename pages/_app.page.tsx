@@ -10,6 +10,8 @@ import { useRef } from 'react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components'
 
+import MainLayout from './src/root/main-layout'
+
 import GlobalStyle from '~/styles/global-style'
 import { defaultTheme } from '~/styles/theme'
 
@@ -36,7 +38,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <Hydrate>
             <RecoilRoot>
               <GlobalStyle />
-              <Component {...pageProps} />
+              <MainLayout>
+                <Component {...pageProps} />
+              </MainLayout>
               <ReactQueryDevtools />
             </RecoilRoot>
           </Hydrate>

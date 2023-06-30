@@ -32,6 +32,7 @@ module.exports = {
         namedComponents: 'arrow-function'
       }
     ],
+    'import/no-named-as-default': 'off',
     'react-hooks/exhaustive-deps': 'off',
     '@next/next/no-html-link-for-pages': 'off',
     '@typescript-eslint/no-explicit-any': 'off',

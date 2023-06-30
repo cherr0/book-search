@@ -16,6 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     queryClientRef.current = new QueryClient({
       defaultOptions: {
         queries: {
+          suspense: true,
           refetchOnWindowFocus: false
         }
       }

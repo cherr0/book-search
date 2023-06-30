@@ -16,6 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     queryClientRef.current = new QueryClient({
       defaultOptions: {
         queries: {
+          suspense: true,
           refetchOnWindowFocus: false
         }
       }
@@ -25,7 +26,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <title>page title</title>
+        <title>Book Search page</title>
       </Head>
       <ThemeProvider theme={{}}>
         <QueryClientProvider client={queryClientRef.current}>

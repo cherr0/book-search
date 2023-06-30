@@ -1,9 +1,9 @@
 import Document, {
-  Html,
+  DocumentContext,
   Head,
+  Html,
   Main,
-  NextScript,
-  DocumentContext
+  NextScript
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
@@ -13,9 +13,9 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link
+            href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
             rel='stylesheet'
             type='text/css'
-            href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css'
           />
         </Head>
         <body>

@@ -25,7 +25,6 @@
     "preserveWatchOutput": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true,
     "typeRoots": ["node_modules/@types"],
     "jsx": "preserve",
     "noEmit": true,

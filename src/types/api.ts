@@ -3,8 +3,11 @@ export interface ErrorResponse {
   message: string[]
   statusCode: number
 }
-export interface ResponseTypes<T> {
-  data: T
-  message: string
-  statusCode: number
+export interface DefaultResponse {
+  error: string
+  total: number
+}
+
+export interface DefaultPageResponse extends DefaultResponse {
+  page: number
 }

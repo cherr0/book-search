@@ -7,6 +7,8 @@ import {
   TitleUnit
 } from './style'
 
+import defaultImage from '~/assets/image/default_image.png'
+
 export interface Props {
   thumbnailUrl: string
   title?: string
@@ -14,14 +16,14 @@ export interface Props {
 }
 
 const PreviewCard = ({
-  thumbnailUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dM2rpp1m8GOXl9CEKJ5KrQEA7-2ihbmRFg&usqp=CAU',
+  thumbnailUrl,
   title = 'title',
   subtitle = 'subtitle'
 }: Props) => {
   return (
     <PreviewCardWrapper>
       <ThumbnailBox>
-        <ImageUnit src={thumbnailUrl} alt='' />
+        <ImageUnit src={thumbnailUrl ?? defaultImage.src} alt='' />
       </ThumbnailBox>
       <ContentBox>
         <TitleUnit>{title}</TitleUnit>

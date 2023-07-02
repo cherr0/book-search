@@ -2,6 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import PreviewCard from '.'
 
+import defaultImage from '~/assets/image/default_image.png'
+
 export default {
   title: 'list/Preview card',
   component: PreviewCard,
@@ -19,6 +21,7 @@ export default {
       }
     },
     thumbnailUrl: {
+      defaultValue: defaultImage.toString(),
       control: {
         type: 'file'
       }

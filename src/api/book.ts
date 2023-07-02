@@ -3,7 +3,11 @@ import { max } from 'lodash-es'
 
 import { QueryKey } from '~/constants/query'
 import api from '~/lib/api'
-import { NewBookResponse, SearchBookResponse } from '~/types/book'
+import {
+  BookDetailResponse,
+  NewBookResponse,
+  SearchBookResponse
+} from '~/types/book'
 import { addSlashParams } from '~/utils/formatString'
 
 export const getBookSearchList = async (queries: string[], page: number) => {
@@ -39,6 +43,14 @@ export const getBookSearchList = async (queries: string[], page: number) => {
 
 export const getNewBookList = async () => {
   const { data } = await api.get<NewBookResponse>(QueryKey.GET_NEW_RELEASE)
+
+  return data
+}
+
+export const getBookDetail = async (bookId: string) => {
+  const { data } = await api.get<BookDetailResponse>(
+    addSlashParams(QueryKey.GET_BOOK_DETAIL, { bookId })
+  )
 
   return data
 }

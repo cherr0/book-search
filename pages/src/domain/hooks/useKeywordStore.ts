@@ -1,9 +1,10 @@
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState } from 'recoil'
 
 import { keywordsState } from '~/atoms/book'
 
 const useKeywordStore = () => {
   const [keywords, setKeywords] = useRecoilState(keywordsState)
+  const resetKeyword = useResetRecoilState(keywordsState)
 
   const hasKeyword = keywords.length !== 0
 
@@ -42,7 +43,8 @@ const useKeywordStore = () => {
     searchKeywords,
     ignoreKeywords,
     isAvailableBook,
-    changeKeyword
+    changeKeyword,
+    resetKeyword
   }
 }
 

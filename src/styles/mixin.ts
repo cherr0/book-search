@@ -15,12 +15,12 @@ export const typography: StyleRecord<string> = {
     font-weight: 700;
   `,
   subtitle_strong: css`
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     font-weight: 700;
   `,
   subtitle: css`
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     font-weight: 500;
   `

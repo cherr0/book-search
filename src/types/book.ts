@@ -5,7 +5,7 @@ export interface Book {
   subtitle: string
   isbn13: string
   price: string
-  img: string
+  image: string
   url: string
 }
 

@@ -15,7 +15,7 @@ const useNewReleaseQuery = () => {
     }
   )
 
-  const newReleaseList = data?.books
+  const newReleaseList = data?.books ?? []
 
   return { newReleaseList, ...queryData }
 }

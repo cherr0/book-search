@@ -4,16 +4,16 @@ import useKeywordStore from './useKeywordStore'
 
 import { getBookSearchList } from '~/api/book'
 import { QueryKey } from '~/constants/query'
-import { SearchBookResponse } from '~/types/book'
+import { Book, SearchBookResponse } from '~/types/book'
 
 const useSearchQuery = () => {
-  const { keywords, isAvailableBook } = useKeywordStore()
+  const { searchKeywords, isAvailableBook } = useKeywordStore()
 
   const { data, ...queryState } = useInfiniteQuery<SearchBookResponse>(
-    [QueryKey.GET_BOOK_SEARCH, keywords],
-    ({ pageParam: page = 1 }) => getBookSearchList(keywords, page),
+    [QueryKey.GET_BOOK_SEARCH, searchKeywords],
+    ({ pageParam: page = 1 }) => getBookSearchList(searchKeywords, page),
     {
-      enabled: keywords.length !== 0,
+      enabled: searchKeywords.length !== 0,
       getNextPageParam: (lastPage, allPage) => {
         const { total } = lastPage
         const maxSize = Math.ceil(total / 10) === allPage.length
@@ -22,12 +22,11 @@ const useSearchQuery = () => {
     }
   )
 
-  const allPageBookList = data?.pages.reduce(
-    (acc, { books }) => [...acc, ...books],
+  const allPageBookList =
+    data?.pages.reduce((acc, { books }) => [...acc, ...books], [] as Book[]) ??
     []
-  )
 
-  const searchBookList = allPageBookList?.filter(({ title }) =>
+  const searchBookList = allPageBookList.filter(({ title }) =>
     isAvailableBook(title)
   )
 

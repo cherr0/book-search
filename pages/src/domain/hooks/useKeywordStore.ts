@@ -5,6 +5,8 @@ import { keywordsState } from '~/atoms/book'
 const useKeywordStore = () => {
   const [keywords, setKeywords] = useRecoilState(keywordsState)
 
+  const hasKeyword = keywords.length !== 0
+
   const ignoreKeywords = keywords
     .filter((keyword) => keyword.includes('-'))
     .reduce<string[]>((acc, keyword) => {
@@ -13,6 +15,14 @@ const useKeywordStore = () => {
 
       return [...acc, ...ignoreWords]
     }, [])
+
+  const searchKeywords = keywords.map((word) => {
+    if (word.includes('-')) {
+      return word.substring(0, word.indexOf('-'))
+    }
+
+    return word
+  })
 
   const changeKeyword = (text: string) => {
     setKeywords(text.split('|'))
@@ -28,6 +38,8 @@ const useKeywordStore = () => {
 
   return {
     keywords,
+    hasKeyword,
+    searchKeywords,
     ignoreKeywords,
     isAvailableBook,
     changeKeyword

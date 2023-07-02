@@ -1,8 +1,10 @@
+import { InView } from 'react-intersection-observer'
+
 import useSearchQuery from '../../hooks/useSearchQuery'
 import PreviewList from '../../ui/preview-list'
 
 const BookSearchList = () => {
-  const { searchBookList, fetchNextPage } = useSearchQuery()
+  const { searchBookList, fetchNextPage, hasNextPage } = useSearchQuery()
 
   return (
     <PreviewList>
@@ -14,6 +16,16 @@ const BookSearchList = () => {
           thumbnailUrl={image}
         />
       ))}
+      {hasNextPage && (
+        <>
+          <div>Loading...</div>
+          <InView
+            onChange={(inView, entry) => {
+              if (entry.boundingClientRect.y > 300 && inView) fetchNextPage()
+            }}
+          />
+        </>
+      )}
     </PreviewList>
   )
 }

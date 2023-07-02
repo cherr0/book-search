@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react'
+
 import {
   ContentBox,
   ImageUnit,
@@ -9,7 +11,7 @@ import {
 
 import defaultImage from '~/assets/image/default_image.png'
 
-export interface Props {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   thumbnailUrl: string
   title?: string
   subtitle?: string
@@ -18,10 +20,11 @@ export interface Props {
 const PreviewCard = ({
   thumbnailUrl,
   title = 'title',
-  subtitle = 'subtitle'
+  subtitle = 'subtitle',
+  ...restProps
 }: Props) => {
   return (
-    <PreviewCardWrapper>
+    <PreviewCardWrapper {...restProps}>
       <ThumbnailBox>
         <ImageUnit src={thumbnailUrl ?? defaultImage.src} alt='' />
       </ThumbnailBox>

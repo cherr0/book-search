@@ -1,15 +1,15 @@
-import React, { ReactNode } from 'react'
+import React, { HTMLAttributes, ReactNode } from 'react'
 
 import { ContentField, PreviewListWrapper } from './style'
 import PreviewCard from '../preview-card'
 
-export interface Props {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
 }
 
-const PreviewList = ({ children }: Props) => {
+const PreviewList = ({ children, ...restProps }: Props) => {
   return (
-    <PreviewListWrapper>
+    <PreviewListWrapper {...restProps}>
       <ContentField>{children}</ContentField>
     </PreviewListWrapper>
   )

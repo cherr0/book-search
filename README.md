@@ -1,8 +1,8 @@
-# nextjs template default
+# book search
 
 ## Introduction
 
-기본적으로 사용되는 라이브러리 구성과 환경설정이 갖춰진 Nextjs 기반 템플릿입니다.
+[itbook.store](https://api.itbook.store/) API를 활용한 간단한 도서 검색 사이트입니다.
 
 
 ## Used Library
@@ -19,20 +19,36 @@
 
 ### Config
 * husky
-  * lint-staged 
+  * lint-staged
+* storybook
 
-## Initial Setting
-프로젝트 생성 시 github package 사용을 위해 .npmrc 파일 세팅이 필요합니다.
-
-공개 패키지이지만 사용 시 접근 권한 토큰이 필요합니다.
-
-```bash
-//npm.pkg.github.com/:_authToken=[[package read token]]
-@cherr0:registry=https://npm.pkg.github.com/
-``` 
 
 ## Getting Started
 
-상단의 `use this template` -> `Create a new repository` 를 눌러 신규 레포지토리 생성
+```bash
+# yarn 기반 레포지토리
+yarn
+
+# 개발 서버 시작
+yarn dev
+
+# Storybook 서버 시작
+yarn sb
+```
 
 
+## Page Directory
+
+```
+📦 pages
+┣  book
+┃   ┗ [bookId]
+┃       ┣  src
+┃       ┗  index.pages.tsx <-- Detail
+┣  src
+┃   ┣ domain --- index 페이지에 사용되는 source 
+┃   ┗ root --- header,footer와 같은 레이아웃에 사용되는 컴포넌트
+┗  index.pages.tsx <-- Home
+```
+
+[디렉토리 기본 구조](https://cherro.notion.site/React-0b32725d223f45ca9bc88167fdb22e90?pvs=4)는 다음과 같은 기준으로 작업 진행했습니다.

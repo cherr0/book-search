@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { useEffect } from 'react'
 
 import BookSearchList from './src/domain/features/book-search-list'
 import NewReleaseList from './src/domain/features/new-release-list'
@@ -9,9 +10,15 @@ import AsyncBoundary from '~/common/async-boundary'
 import { CommonLayout } from '~/styles/layouts'
 
 const Home: NextPage = () => {
-  const { hasKeyword } = useKeywordStore()
+  const { hasKeyword, resetKeyword } = useKeywordStore()
 
   const RenderList = hasKeyword ? BookSearchList : NewReleaseList
+
+  useEffect(() => {
+    return () => {
+      resetKeyword()
+    }
+  }, [])
 
   return (
     <CommonLayout>

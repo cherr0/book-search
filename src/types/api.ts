@@ -5,7 +5,6 @@ export interface ErrorResponse {
 }
 export interface DefaultResponse {
   error: string
-  total: number
 }
 
 export interface DefaultPageResponse extends DefaultResponse {

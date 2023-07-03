@@ -13,7 +13,14 @@ const useBookDetailQuery = () => {
     { enabled: !!bookId }
   )
 
-  return { bookInfo, ...queryState }
+  const descriptionData = {
+    pages: bookInfo.pages,
+    rating: bookInfo.rating,
+    price: bookInfo.price,
+    desc: bookInfo.desc
+  }
+
+  return { bookInfo, descriptionData, ...queryState }
 }
 
 export default useBookDetailQuery

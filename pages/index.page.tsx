@@ -22,9 +22,7 @@ const Home: NextPage = () => {
 
   return (
     <CommonLayout>
-      <AsyncBoundary>
-        <SearchHeader />
-      </AsyncBoundary>
+      <SearchHeader />
       <AsyncBoundary>
         <RenderList />
       </AsyncBoundary>
